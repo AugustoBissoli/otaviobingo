@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabela de Bingo</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>B</th>
+                    <th>I</th>
+                    <th>N</th>
+                    <th>G</th>
+                    <th>O</th>
+                </tr>
+            </thead>
+            <tbody id="bingo-table-body">
+                <!-- Bingo table cells -->
+                <tr>
+                    <td id="B1"></td>
+                    <td id="I1"></td>
+                    <td id="N1"></td>
+                    <td id="G1"></td>
+                    <td id="O1"></td>
+                </tr>
+                <tr>
+                    <td id="B2"></td>
+                    <td id="I2"></td>
+                    <td id="N2"></td>
+                    <td id="G2"></td>
+                    <td id="O2"></td>
+                </tr>
+                <tr>
+                    <td id="B3"></td>
+                    <td id="I3"></td>
+                    <td id="N3"></td>
+                    <td id="G3"></td>
+                    <td id="O3"></td>
+                </tr>
+                <tr>
+                    <td id="B4"></td>
+                    <td id="I4"></td>
+                    <td id="N4"></td>
+                    <td id="G4"></td>
+                    <td id="O4"></td>
+                </tr>
+                <tr>
+                    <td id="B5"></td>
+                    <td id="I5"></td>
+                    <td id="N5"></td>
+                    <td id="G5"></td>
+                    <td id="O5"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="generateRandomNumbers()">Gerar Tabela de Bingo</button>
+    </div>
+
+    <script>
+        function generateRandomNumbers() {
+            var cells = document.querySelectorAll("td");
+
+            for (var i = 0; i < cells.length; i++) {
+                cells[i].textContent = generateRandomNumber(i);
+            }
+        }
+
+        function generateRandomNumber(index) {
+            var min = 1 + index * 15;
+            var max = min + 14;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>
